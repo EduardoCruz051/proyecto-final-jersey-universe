@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <link rel="manifest" href="./manifest.json">
+
+<meta name="theme-color" content="#111111">
+
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Jersey Universe: jerseys de clubes y selecciones.">
+  <title>Jersey Universe | Tu pasión, tu jersey</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("PWA activada"))
+      .catch(error => console.error("Error PWA:", error));
+  });
+}
+</script>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Jersey Universe, inicio">
+      <span class="brand-mark">JU</span><span>JERSEY <b>UNIVERSE</b></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#inicio">Inicio</a>
+      <a href="#acerca">Acerca de nosotros</a>
+      <a href="#contactos">Contactos</a>
+    </nav>
+    <div class="header-actions">
+      <button class="text-button" id="accountButton">Mi cuenta</button>
+      <button class="cart-button" id="cartButton" aria-label="Abrir carrito">Carrito <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="eyebrow">TU PASIÓN, TU EQUIPO, TU JERSEY</p>
+        <h1>VIVE EL FÚTBOL.<br><span>VISTE TUS COLORES.</span></h1>
+        <p>Encuentra jerseys de clubes y selecciones para llevar tu pasión a todas partes.</p>
+        <a class="primary-button" href="#catalogo">Explorar catálogo</a>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Ventajas">
+      <div><strong>⚽ Variedad</strong><span>Clubes y selecciones</span></div>
+      <div><strong>🔒 Compra segura</strong><span>Compra con confianza</span></div>
+      <div><strong>📦 Directo a tu casa</strong><span>Tu pasión llega hasta tu puerta</span></div>
+    </section>
+
+    <section class="section" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DESCUBRE TU PRÓXIMO JERSEY</p>
+          <h2>Catálogo</h2>
+        </div>
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Buscar equipo o jersey...">
+        </label>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter active" data-filter="Todos">Todos</button>
+        <button class="filter" data-filter="Clubes">Clubes</button>
+        <button class="filter" data-filter="Selecciones">Selecciones</button>
+        <button class="filter" data-filter="Ofertas">Ofertas</button>
+      </div>
+
+      <p class="catalog-hint">Selecciona una playera para consultar su descripción, precio y tallas disponibles.</p>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="info-section" id="acerca">
+      <div class="info-card about-card">
+        <p class="eyebrow">CONOCE JERSEY UNIVERSE</p>
+        <h2>Acerca de nosotros</h2>
+        <p>En Jersey Universe compartimos la pasión por el fútbol a través de jerseys de clubes y selecciones. Queremos que encuentres modelos que representen a tu equipo y tus colores favoritos.</p>
+        <a class="info-link" href="#catalogo">Conoce nuestro catálogo <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="info-section contact-section" id="contactos">
+      <div class="info-card contact-card">
+        <p class="eyebrow">ESTAMOS PARA AYUDARTE</p>
+        <h2>Contactos</h2>
+        <p class="contact-name">José Peralta</p>
+        <a class="contact-email" href="mailto:Josecrperalta@outlook.com">Josecrperalta@outlook.com</a>
+        <p class="contact-note">Si tienes alguna duda o comentario, puedes escribirme directamente por correo electrónico.</p>
+      </div>
+    </section>
+
+    <section class="weekly-announcement" aria-label="Novedades">
+      <div class="weekly-icon" aria-hidden="true">⚽</div>
+      <p class="eyebrow">SIEMPRE HAY ALGO NUEVO</p>
+      <h2>¡Se publicarán nuevas camisetas cada semana!</h2>
+      <p>Visita Jersey Universe constantemente y descubre los nuevos modelos que llegan al catálogo.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#inicio">
+      <span class="brand-mark">JU</span><span>JERSEY <b>UNIVERSE</b></span>
+    </a>
+    <p>Tu pasión, tu universo.</p>
+    <a class="footer-contact-link" href="#contactos">Contáctanos</a>
+    <small>© <span id="year"></span> Jersey Universe. Sitio de demostración.</small>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <section class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="detailName" aria-hidden="true">
+    <button class="close-button detail-close" data-close aria-label="Cerrar">×</button>
+    <div id="productDetail"></div>
+  </section>
+
+  <aside class="side-panel" id="cartPanel" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="panel-heading">
+      <div>
+        <p class="eyebrow">TU SELECCIÓN</p>
+        <h2>Carrito</h2>
+      </div>
+      <button class="close-button" data-close aria-label="Cerrar">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+      <small>Envío e impuestos se calculan al confirmar el pedido.</small>
+      <button id="checkoutButton" class="primary-button full-button">Continuar pedido</button>
+    </div>
+  </aside>
+
+  <section class="modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle" aria-hidden="true">
+    <button class="close-button modal-close" data-close aria-label="Cerrar">×</button>
+    <p class="eyebrow">BIENVENIDO A JERSEY UNIVERSE</p>
+    <h2 id="accountTitle">Mi cuenta</h2>
+    <p class="muted" id="accountDescription">Ingresa a tu cuenta de Jersey Universe.</p>
+
+    <form id="loginForm">
+      <label>
+        Correo electrónico
+        <input type="email" id="emailInput" placeholder="tu@correo.com" required>
+      </label>
+
+      <label>
+        Contraseña
+        <input type="password" id="passwordInput" placeholder="Mínimo 6 caracteres" minlength="6" required>
+      </label>
+
+      <div class="captcha-box">
+        <span class="captcha-title">Verificación de seguridad</span>
+        <div class="captcha-visual">
+          <canvas id="captchaCanvas" width="170" height="48" aria-label="Código de seguridad"></canvas>
+          <button type="button" id="refreshCaptcha" class="captcha-refresh" title="Generar otro código" aria-label="Generar otro código">↻</button>
+        </div>
+        <input type="text" id="captchaInput" placeholder="Escribe los caracteres de la imagen" maxlength="5" autocomplete="off" required>
+        <small id="captchaError" class="captcha-error" aria-live="polite"></small>
+      </div>
+
+      <button class="primary-button full-button" id="accountSubmitButton" type="submit">Iniciar sesión</button>
+    </form>
+
+    <p id="accountMessage" class="form-message" aria-live="polite"></p>
+    <button id="switchAuthMode" class="text-button" type="button">¿No tienes cuenta? Crear una</button>
+    <button id="logoutButton" class="text-button hidden" type="button">Cerrar sesión</button>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
