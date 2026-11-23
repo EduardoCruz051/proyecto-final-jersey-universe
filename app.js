@@ -21,56 +21,56 @@ const originalProducts = [
   {
     id: 101, name: "Jersey PSG local", team: "PSG", category: "Clubes",
     price: 899, oldPrice: 1099, tag: "DESTACADO", color: "#1764a5", code: "10",
-    image: "./img/psg-local.png",
+    image: "./psg-local.png",
     description: "Playera local del Paris Saint-Germain.",
     details: ["Diseño local del PSG", "Escudo del club al frente", "Imagen original del catálogo"]
   },
   {
     id: 102, name: "Jersey Real Madrid local", team: "Real Madrid", category: "Clubes",
     price: 849, tag: "NUEVO", color: "#d9e2e8", code: "07", dark: true,
-    image: "./img/madrid-local.png",
+    image: "./madrid-local.png",
     description: "Playera local del Real Madrid.",
     details: ["Diseño local del Real Madrid", "Escudo del club al frente", "Imagen original del catálogo"]
   },
   {
     id: 103, name: "Jersey Barcelona", team: "Barcelona", category: "Clubes",
     price: 799, oldPrice: 949, tag: "OFERTA", color: "#087b52", code: "09",
-    image: "./img/barcelona-local.png",
+    image: "./barcelona-local.png",
     description: "Playera del FC Barcelona.",
     details: ["Diseño del FC Barcelona", "Escudo del club al frente", "Imagen original del catálogo"]
   },
   {
     id: 104, name: "Jersey América visitante", team: "América", category: "Clubes",
     price: 899, tag: "POPULAR", color: "#b72e3b", code: "11",
-    image: "./img/america-visitante.png",
+    image: "./america-visitante.png",
     description: "Playera visitante del Club América.",
     details: ["Diseño visitante del América", "Escudo del club al frente", "Imagen original del catálogo"]
   },
   {
     id: 105, name: "Jersey selección Francia", team: "Francia", category: "Selecciones",
     price: 829, tag: "NUEVO", color: "#234b91", code: "08",
-    image: "./img/francia.png",
+    image: "./francia.png",
     description: "Playera de la selección de Francia.",
     details: ["Diseño de la selección francesa", "Escudo de la selección", "Imagen original del catálogo"]
   },
   {
     id: 106, name: "Jersey Holanda retro", team: "Retro", category: "Selecciones",
     price: 999, oldPrice: 1199, tag: "OFERTA", color: "#252a35", code: "90",
-    image: "./img/holanda-retro.png",
+    image: "./holanda-retro.png",
     description: "Modelo retro negro que ya figuraba en tu catálogo.",
     details: ["Estilo retro", "Color negro", "Fotografía pendiente"]
   },
   {
     id: 107, name: "Jersey Manchester united", team: "Clubes", category: "Clubes",
     price: 799, tag: "CLÁSICO", color: "#e8e8e4", code: "04", dark: true,
-    image: "./img/manchester-united-local.png",
+    image: "./manchester-united-local.png",
     description: "Modelo blanco de selección que ya estaba en el catálogo original.",
     details: ["Diseño blanco clásico", "Categoría selecciones", "Fotografía pendiente"]
   },
   {
     id: 108, name: "Jersey edición especial Milan", team: "Edición especial", category: "Clubes",
     price: 949, tag: "ESPECIAL", color: "#75459a", code: "21",
-    image: "./img/milan-retro.png",
+    image: "./milan-retro.png",
     description: "Modelo de edición especial que ya formaba parte de tu catálogo.",
     details: ["Edición especial", "Diseño de colección", "Fotografía pendiente"]
   }
